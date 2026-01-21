@@ -2,7 +2,7 @@
 UN Digital Library scraper implementation.
 """
 
-from app.config import TARGET_URL, PAGE_LOAD_TIMEOUT
+from app.config import SCRAPE_URL, PAGE_LOAD_TIMEOUT
 from app.models import Resolution
 from app.pdf.extractor import PDFExtractor
 from app.scraper.base import Scraper
@@ -11,8 +11,8 @@ from app.scraper.base import Scraper
 class UNLibraryScraper(Scraper):
     """Scraper for UN Digital Library resolutions."""
     
-    def __init__(self):
-        super().__init__(url=TARGET_URL, headless=True, timeout=PAGE_LOAD_TIMEOUT)
+    def __init__(self, url: str = SCRAPE_URL):
+        super().__init__(url=url, headless=True, timeout=PAGE_LOAD_TIMEOUT)
         self.pdf_extractor = PDFExtractor()
     
     def scrape_resolutions(self) -> list[Resolution]:

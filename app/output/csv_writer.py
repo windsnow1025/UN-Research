@@ -4,13 +4,13 @@ CSV export functionality for resolution data.
 
 import pandas as pd
 
-from app.config import OUTPUT_FILENAME
+from app.config import OUTPUT_FILE
 from app.models import Resolution
 
 
 def save_to_csv(
     resolutions: list[Resolution], 
-    filename: str = OUTPUT_FILENAME
+    filename: str = OUTPUT_FILE
 ) -> None:
     """
     Save extracted resolutions to a CSV file.
